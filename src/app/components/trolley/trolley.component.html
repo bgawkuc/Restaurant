@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="trolley">
+        <fa-icon class="icon" [icon]="faShoppingCart"></fa-icon>
+    </div>
+
+    <table>
+        <tr>
+            <th>Dish photo</th>
+            <th>Dish number</th>
+            <th>Dish name</th>
+            <th>Dish price</th>
+            <th>Plus</th>
+            <th>Minus</th>
+        </tr>
+        <tr *ngFor="let dish of reservedDishes">
+            <td><img src="{{dish.img}}"></td>
+            <td>{{dish.counter}}</td>
+            <td>{{dish.name}}</td>
+            <td *ngIf="currencyUSD()">{{dish.priceUSD | currency: 'USD'}}</td>
+            <td *ngIf="!currencyUSD()">{{dish.priceEUR | currency: 'EUR'}}</td>
+            <td><button (click)="plusDish(dish)">+</button></td>
+            <td><button (click)="minusDish(dish)">-</button></td>
+        </tr>
+
+    </table>
+
+    <table>
+        <tr>
+            <th>Total</th>
+            <th *ngIf="currencyUSD()">{{sum | currency: 'USD'}}</th>
+            <th *ngIf="!currencyUSD()">{{sum | currency: 'EUR'}}</th>
+        </tr>
+        <tr>
+            <th>Reserved dishes</th>
+            <th [ngStyle]="{'backgroundColor': (dishNumber < 10) ? '#fda46c' : '#a5c8fa'}">{{dishNumber}}</th>
+
+        </tr>
+
+    </table>
+
+    <div class="trolley">
+        <fa-icon class="icon" [icon]="faShoppingCart"></fa-icon>
+    </div>
+</div>

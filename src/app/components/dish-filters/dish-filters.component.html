@@ -1,0 +1,65 @@
+<div class="container" *ngIf="this.filters">
+    <div class="filter">
+        <h4>Cuisine</h4>
+        <div>
+            <li *ngFor="let dish of getCuisine()">
+                <input type="checkbox" (change)="addCuisine($event)" value="{{dish}}">{{dish}}
+            </li>
+        </div>
+    </div>
+
+    <div class="filter">
+        <h4>Category</h4>
+        <div>
+            <li *ngFor="let dish of getCategory()">
+                <input type="checkbox" (change)="addCategory($event)" value="{{dish}}">{{dish}}
+            </li>
+        </div>
+    </div>
+
+    <div class="filter">
+        <h4>Star number</h4>
+        <div>
+            <li class="star"><input type="checkbox" (change)="addStars($event,1)"><span>&#9733;</span><span
+                    class="star empty">&#9733;&#9733;&#9733;&#9733;</span>
+            </li>
+            <li class="star"><input type="checkbox" (change)="addStars($event,2)">&#9733;&#9733;<span
+                    class="star empty">&#9733;&#9733;&#9733;</span>
+            </li>
+            <li class="star"><input type="checkbox" (change)="addStars($event,3)">&#9733;&#9733;&#9733;<span
+                    class="star empty">&#9733;&#9733;</span>
+            </li>
+            <li class="star"><input type="checkbox" (change)="addStars($event,4)">&#9733;&#9733;&#9733;&#9733;<span
+                    class="star empty">&#9733;</span>
+            </li>
+            <li class="star"><input type="checkbox" (change)="addStars($event,5)">&#9733;&#9733;&#9733;&#9733;&#9733;
+            </li>
+        </div>
+    </div>
+
+    <div class="filter">
+        <h4>Price</h4>
+        <div>
+            <div class="priceRange">
+                <label *ngIf="currentChange()">{{priceFilterMin | currency: 'USD'}}</label>
+                <label *ngIf="!currentChange()">{{priceFilterMin | currency: 'EUR'}}</label>
+                <input type="range" min="{{minPrice}}" max="{{priceFilterMax}}" (input)="updateMinPrice($event)"
+                    value="{{priceFilterMin}}" class="range">
+            </div>
+            <br>
+            <div class="priceRange">
+                <label *ngIf="currentChange()">{{priceFilterMax | currency: 'USD'}}</label>
+                <label *ngIf="!currentChange()">{{priceFilterMax | currency: 'EUR'}}</label>
+                <input type="range" min="{{priceFilterMin}}" max="{{maxPrice}}" (input)=updateMaxPrice($event)
+                    value="{{priceFilterMax}}">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="filters">
+    <button (click)="hideFilters()" class="filtersBtn">
+        <span *ngIf="this.filters">Hide filters</span>
+        <span *ngIf="!this.filters">Show filters</span>
+    </button>
+</div>

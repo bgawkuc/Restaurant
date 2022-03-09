@@ -1,0 +1,45 @@
+<div class="container">
+
+    <div class="dish"
+        [ngClass]="{'cheapestDish': (dish.name === lowestPriceDish.name), 'mostExpensiveDish' :  (dish.name === highestPriceDish.name), 'leftDishes' : (dish.name !== lowestPriceDish.name && dish.name !== highestPriceDish.name)}"
+        *ngIf="isIn()">
+        <div class="dishImg">
+            <div class="img">
+                <img src="{{dish.img[0]}}" (click)="displayDish(dish)">
+            </div>
+        </div>
+        <div class="dishDescription">
+            <div class="name">{{dish.name | uppercase}}</div>
+            <div class="categories">
+                <div class="categoriesTypes">
+                    <div class="cuisine">{{dish.cuisine | uppercase}} /</div>
+                    <div class="type"> {{dish.type}} /</div>
+                    <div class="category"> {{dish.category | lowercase}}</div>
+                </div>
+            </div>
+
+            <div class="orderDishes">
+                <div class="price" *ngIf="currencyService.currency == 'USD'"> {{dish.priceUSD | currency: 'USD'}}
+                </div>
+                <div class="price" *ngIf="currencyService.currency == 'EUR'"> {{dish.priceEUR | currency: 'EUR'}}
+                </div>
+
+                <div class="isAvailable">
+                    <div *ngIf="dish.selectedNumber == dish.maxNumber; then soldOut, else available">
+                    </div>
+                    <ng-template #soldOut>SOLD OUT</ng-template>
+                    <ng-template #available>AVAILABLE</ng-template>
+                </div>
+
+                <div class="availableDishes" *ngIf="this.authService.isLoggedIn != false">
+                    <button class="btnChange" (click)="minusDish(dish)"
+                        [ngStyle]="{'visibility': (dish.selectedNumber == 0) ? 'hidden' : 'visible'}">-</button>
+                    <div class="selectedNumber"> {{dish.selectedNumber}}</div>
+                    <button class="btnChange" (click)="plusDish(dish)"
+                        [ngStyle]="{'visibility': (dish.selectedNumber == dish.maxNumber) ? 'hidden' : 'visible'}"
+                        [ngStyle]="{'backgroundColor': (dish.maxNumber - dish.selectedNumber <= 3) ? '#fb6100' : '#dddddd'}">+</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

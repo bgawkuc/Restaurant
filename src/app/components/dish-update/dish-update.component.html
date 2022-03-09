@@ -1,0 +1,109 @@
+<div class="container" *ngIf="isDefined()">
+    <button class="backBtn" (click)="router.navigate(['dish-manager'])">Back</button>
+
+    <p class="dishName">{{dish.name}}</p>
+    <form [formGroup]="categoryForm" (ngSubmit)="updateCategory()">
+        <div class="form-group">
+            <label>Category</label>
+            <select class="form-control" formControlName="category">
+                <option *ngFor="let category of categories" [value]="category">
+                    {{category}}
+                </option>
+            </select>
+            <div class="btnContainer">
+                <button type="submit">Update category</button>
+            </div>
+        </div>
+
+    </form>
+
+    <form [formGroup]="cuisineForm" (ngSubmit)="updateCuisine()">
+        <div class="form-group">
+            <label>Cuisine</label>
+            <select class="form-control" formControlName="cuisine">
+                <option *ngFor="let cuisine of cuisines" [value]="cuisine">
+                    {{cuisine}}
+                </option>
+            </select>
+            <div class="btnContainer">
+                <button type="submit">Update cuisine</button>
+            </div>
+        </div>
+    </form>
+
+    <form [formGroup]="typeForm" (ngSubmit)="updateType()">
+        <div class="form-group">
+            <label>Type</label>
+            <select class="form-control" formControlName="type">
+                <option *ngFor="let type of types" [value]="type">
+                    {{type}}
+                </option>
+            </select>
+            <div class="btnContainer">
+                <button type="submit">Update type
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <form [formGroup]="ingredientsForm" (ngSubmit)="updateIngredients()" action="/action_page.php">
+        <div class="form-group">
+            <label>Ingredients</label>
+            <input type="text" class="form-control" formControlName="ingredients">
+            <div class=" btnContainer">
+                <button type="submit">Update ingredients</button>
+            </div>
+        </div>
+    </form>
+
+    <form [formGroup]="descriptionForm" (ngSubmit)="updateDescription()">
+        <div class="form-group">
+            <label>Description</label>
+            <input type="text" class="form-control" formControlName="description">
+            <div class="btnContainer">
+                <button type="submit">Update description</button>
+            </div>
+        </div>
+    </form>
+
+    <form [formGroup]="imgForm" (ngSubmit)="updateImg()">
+        <div class="form-group">
+            <label>Image link</label>
+            <input type="text" class="form-control" formControlName="img">
+            <div class="btnContainer">
+                <button type="submit">Update images</button>
+            </div>
+        </div>
+    </form>
+
+    <form [formGroup]="maxForm" (ngSubmit)="updateMax()">
+        <div class="form-group">
+            <label>Max number</label>
+            <input type="number" class="form-control" formControlName="max">
+            <div class="btnContainer">
+                <button type="submit">Update max number</button>
+            </div>
+        </div>
+    </form>
+
+    <form [formGroup]="priceForm" (ngSubmit)="updatePrice()">
+        <div class="form-group">
+            <label>Price in USD</label>
+            <input type="number" class="form-control" formControlName="price">
+            <div class="btnContainer">
+                <button type="submit">Update price</button>
+            </div>
+        </div>
+    </form>
+
+    <form [formGroup]="rateForm" (ngSubmit)="updateRate()">
+        <div class="form-group">
+            <label>Rate</label>
+            <input type="number" class="form-control" formControlName="rate">
+            <div class="btnContainer">
+                <button type="submit">Update rate</button>
+            </div>
+        </div>
+    </form>
+
+</div>

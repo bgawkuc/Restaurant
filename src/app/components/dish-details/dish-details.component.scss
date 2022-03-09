@@ -1,0 +1,104 @@
+.container {
+    margin: 0;
+    padding: 0;
+}
+
+.backBtn {
+    width: 60px;
+    height: 30px;
+    background-color:#fb6100;
+    border: none;
+    font-weight: bold;
+    color: white;
+    margin-top: 20px;
+}
+
+.name {
+    margin-top: 30px;
+    font-size: 35px;
+    color: #fb6100;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.sliderBtn {
+    width: 30px;
+    height: 30px;
+    background-color:#fb6100;
+    border: none;
+    font-weight: bold;
+    color: white;
+}
+
+img {
+    width: 60vw;
+}
+
+.availableDishes {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.ingredients, .ingredientsTitle, .description, .descriptionTitle {
+    color:#a7a7a7;
+}
+
+.ingredientsTitle, .descriptionTitle, .details {
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.description {
+    margin-left: 10vw;
+    margin-right: 10vw;
+    text-align: center;
+}
+
+.star {
+    font-size: 20px;
+    color: #fb6100;
+}
+
+.orderDishes {
+    display: flex;
+    margin-top: 15px;
+    gap: 15px;
+}
+
+.btnChange {
+    width: 25px;
+    height: 25px;
+    background-color: #dddddd;
+    border: none;
+}
+
+@media (min-width:1000px) {
+    .backBtn {
+        font-size: 20px;
+        width: 150px;
+    }
+
+    .sliderBtn {
+        width: 35px;
+        height: 35px;
+        font-size: 25px;
+    }
+
+    .details, .ingredientsTitle, .ingredients, .descriptionTitle, .description {
+        font-size: 18px;
+    }
+
+    .price, .isAvailable, .selectedNumber {
+        font-size: 18px;
+    }
+
+    .btnChange {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 25px;
+        width: 25px;
+        font-size: 20px;
+    }
+}

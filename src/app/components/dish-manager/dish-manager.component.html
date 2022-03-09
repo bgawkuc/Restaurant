@@ -1,0 +1,41 @@
+<p class="title">Manage dishes</p>
+
+<div *ngFor="let dish of this.dishes">
+    <div class="dish">
+        <div class="dishImg">
+            <div class="img">
+                <img src="{{dish.img[0]}}">
+            </div>
+        </div>
+        <div class="dishDescription">
+            <div class="name">{{dish.name | uppercase}}</div>
+            <div class="categories">
+                <div class="categoriesTypes">
+                    <div class="cuisine">{{dish.cuisine | uppercase}} /</div>
+                    <div class="type"> {{dish.type}} /</div>
+                    <div class="category"> {{dish.category | lowercase}}</div>
+                </div>
+
+                <div class="remove">
+                    <button class="removeBtn" (click)="removeDish(dish)">Remove dish</button>
+                </div>
+
+                <div class="update">
+                    <button class="updateBtn" (click)="updateDish(dish)">Update dish</button>
+                </div>
+
+            </div>
+
+            <div class="orderDishes">
+                <div class="price" *ngIf="currencyService.currency == 'USD'"> {{dish.priceUSD | currency: 'USD'}}
+                </div>
+                <div class="price" *ngIf="currencyService.currency == 'EUR'"> {{dish.priceEUR | currency: 'EUR'}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<p class="title">Add dish</p>
+<app-form></app-form>

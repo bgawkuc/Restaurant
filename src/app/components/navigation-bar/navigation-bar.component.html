@@ -1,0 +1,64 @@
+<div class="menuBar" *ngIf="this.mobile">
+    <button (click)="dropMenu()">
+        <fa-icon class="icon" [icon]="menuBars"></fa-icon>
+    </button>
+</div>
+
+
+<ul *ngIf="!this.mobile || this.showMenu">
+    <div class="navBar">
+        <div>
+            <li>
+                <a [routerLink]="['/start']">Home</a>
+            </li>
+        </div>
+
+        <div>
+            <li>
+                <a [routerLink]="['/menu']">Menu</a>
+            </li>
+        </div>
+
+        <div *ngIf="this.authService.isLoggedIn != false">
+            <li>
+                <a [routerLink]="['/trolley']">Trolley</a>
+            </li>
+        </div>
+
+        <div *ngIf="this.authService.isLoggedIn != false && isDefined() && this.user.isAdmin">
+            <li>
+                <a [routerLink]="['/admin-view']">Admin view</a>
+            </li>
+        </div>
+
+        <div *ngIf="this.authService.isLoggedIn != false && isDefined() && (this.user.isAdmin || this.user.isManager) ">
+            <li>
+                <a [routerLink]="['/dish-manager']">Dish manager</a>
+            </li>
+        </div>
+
+        <div *ngIf="this.authService.isLoggedIn == false">
+            <li>
+                <a [routerLink]="['/sign-in']">Sign in</a>
+            </li>
+        </div>
+
+        <div *ngIf="this.authService.isLoggedIn == false">
+            <li>
+                <a [routerLink]="['/sign-up']">Sign up</a>
+            </li>
+        </div>
+
+        <div *ngIf="this.authService.isLoggedIn != false">
+            <li>
+                <a [routerLink]="['/start']" (click)="signOut()">Sign out</a>
+
+            </li>
+        </div>
+
+    </div>
+
+    <div *ngIf="this.authService.isLoggedIn != false && isDefined()" class="nick">
+        <span>{{this.user.nick}}</span>
+    </div>
+</ul>

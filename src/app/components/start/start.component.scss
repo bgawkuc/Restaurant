@@ -1,0 +1,125 @@
+.tableImg {
+    width: 100vw;
+    margin-top: -40vw;
+    z-index: 0;
+}
+
+.title {
+    background: #fb6100;
+    height: 260px;
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
+    z-index: 10;
+}
+
+h2 {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 80px;
+}
+
+.contact {
+    width: 90vw;
+    margin-left: 5vw;
+    margin-top: 40px;
+    margin-bottom: 100px;
+    border: 1.5px solid #fb6100;
+    padding: 10px 0 20px 0;
+}
+
+h4 {
+    color: #fb6100;
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.contactContainer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.mapImg {
+    width: 50vw;
+}
+
+li {
+    list-style-type: none;
+    font-size: 18px;
+    color: rgb(171,171,171);
+    font-weight: bold;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.footer {
+    margin-top: -60px;
+    height: 80px;
+    background-color: #fb6100;
+}
+
+p {
+    text-align: center;
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    padding-top: 10px;
+    height: 20px;
+}
+
+.iconsContainer {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.icon {
+    width: 4vw;
+    height: 4vw;
+}
+
+@media (min-width: 1000px) {
+    .title {
+        height: 300px;
+    }
+
+    h2 {
+        font-size: 50px;
+    }
+
+    .icon {
+        width: 2vw;
+        height: 2vw;
+    }
+
+    h4 {
+        font-size: 35px;
+    }
+
+    li {
+        font-size: 25px;
+    }
+
+    p {
+        font-size: 22px;
+        height: 22px;
+    }
+}
+
+@media (max-width: 500px) {
+    .contactContainer {
+        flex-direction: column;
+    }
+
+    .contactContainer div {
+        text-align: center;
+    }
+}
+

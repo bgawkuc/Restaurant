@@ -1,0 +1,81 @@
+.title {
+    margin-top: 15px;
+    font-size: 35px;
+    color: #fb6100;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.persistenceTitle {
+    font-size: 20px;
+    color: #fb6100;
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+
+.persistenceBtn {
+    display: flex;
+    column-gap: 10px;
+    margin-bottom: 50px;
+}
+
+.persistenceBtn button, .roleBtn button, .banBtn button {
+    width: 100px;
+    border: none;
+    background-color: #fb6100;
+    color: white;
+    font-weight: bold;
+}
+
+table {
+    width: 100vw;
+    border-collapse: collapse;
+    margin-left: 0.5vw;
+}
+
+td, th {
+    text-align: center;
+    border: 1px solid #dddddd;
+}
+
+select {
+    margin: 10px 0 5px 0;
+    width: 100px;
+    text-align: center;
+}
+
+.roleBtn {
+    margin-bottom: 10px;
+}
+
+.roleBtn button, .banBtn button{
+    width: 70px;
+}
+
+@media (min-width:1000px) {
+    .persistenceTitle {
+        font-size: 25px;
+    }
+    
+    .persistenceBtn button, .roleBtn button, .banBtn button {
+        font-size: 22px;
+        width: 150px;
+    }
+
+    th {
+        font-size: 20px;
+    }
+
+    .nick {
+        font-size: 18px;
+    }
+    
+    select {
+        width: 200px;
+        font-size: 18px;
+    }
+    
+    .roleBtn button, .banBtn button{
+        width: 120px;
+    }
+}

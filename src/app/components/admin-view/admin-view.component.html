@@ -1,0 +1,53 @@
+<div class="container">
+    <p class="title">Admin view</p>
+
+    <p class="persistenceTitle">Change persistence</p>
+    <div class="persistenceBtn">
+        <button (click)="updateMode($event,'local')">Local</button>
+        <button (click)="updateMode($event,'session')">Session</button>
+        <button (click)="updateMode($event,'none')">None</button>
+    </div>
+
+    <table>
+        <tr>
+            <th>Nick</th>
+            <th>Add role</th>
+            <th>Delete role</th>
+            <th>Ban/unban</th>
+        </tr>
+
+        <tr *ngFor="let user of this.users">
+            <td class="nick">{{user.nick}}</td>
+
+            <td>
+                <select #addRole id="roles">
+                    <option *ngIf="user.isAdmin == false" value="admin">Admin</option>
+                    <option *ngIf="user.isManager == false" value="manager">Manager</option>
+                    <option *ngIf="user.isCustomer == false" value="customer">Customer</option>
+                </select>
+                <div class="roleBtn">
+                    <button (click)="updateRole(user, addRole.value, true)">Add</button>
+                </div>
+            </td>
+
+            <td>
+                <select #deleteRole id="roles">
+                    <option *ngIf="user.isAdmin == true" value="admin">Admin</option>
+                    <option *ngIf="user.isManager == true" value="manager">Manager</option>
+                    <option *ngIf="user.isCustomer == true" value="customer">Customer</option>
+                </select>
+                <div class="roleBtn">
+                    <button (click)="updateRole(user, deleteRole.value, false)">Delete</button>
+                </div>
+
+            </td>
+
+            <td>
+                <div class="banBtn">
+                    <button *ngIf="user.isBanned == false" (click)="banUser(user)">Ban</button>
+                    <button *ngIf="user.isBanned == true" (click)="unbanUser(user)">Unban</button>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

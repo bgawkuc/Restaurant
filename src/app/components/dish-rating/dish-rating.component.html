@@ -1,0 +1,16 @@
+<div class="dishRate">
+    <span class="totalRate">Dish rate</span>
+    <span class="star filled">&#9733;</span>
+    <span *ngIf="dish.rateNumber !=0" class="totalRate">{{dish.rate / dish.rateNumber}} ({{dish.rateNumber}})</span>
+    <span *ngIf="dish.rateNumber==0" class="totalRate">{{dish.rate}} ({{dish.rateNumber}})</span>
+</div>
+
+<div class="yourRate">
+    <div class="title">Your rate&nbsp;</div>
+    <ngb-rating [(rate)]="yourRate" [max]="5">
+        <ng-template let-fill="fill">
+            <span class="star" [class.filled]="fill === 100"> &#9733;</span>
+        </ng-template>
+    </ngb-rating>
+    <button (click)="updateRate()">Send rate</button>
+</div>

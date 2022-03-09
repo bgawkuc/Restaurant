@@ -1,0 +1,77 @@
+<form [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
+
+    <div class="formTitle">ADD REVIEW</div>
+
+    <div class="form-group">
+        <div>
+            <label>Nick</label>
+        </div>
+        <div>
+            <input type="text" class="form-control" formControlName="nick">
+        </div>
+
+    </div>
+    <div class="warning" *ngIf="reviewForm.controls['nick'].hasError('required')" style="color: #fb6100;">
+        Nick can't be empty
+    </div>
+
+    <div class="form-group">
+        <div>
+            <label>Name</label>
+        </div>
+        <div>
+            <input type="text" class="form-control" formControlName="name">
+        </div>
+    </div>
+
+    <div class="warning" *ngIf="reviewForm.controls['name'].hasError('required')" style="color: #fb6100;">
+        Name can't be empty
+    </div>
+
+    <div class="form-group">
+        <div>
+            <label>Review</label>
+        </div>
+        <div>
+            <input type="text" class="form-control review" formControlName="review">
+        </div>
+    </div>
+
+    <div class="warning" *ngIf="reviewForm.controls['review'].hasError('required')" style="color: #fb6100;">
+        Review can't be empty
+    </div>
+
+    <div class="warning" *ngIf="reviewForm.controls['review'].hasError('minlength') " style="color: #fb6100;">
+        Review must contain minimum 50 characters
+    </div>
+
+    <div class="warning" *ngIf="reviewForm.controls['review'].hasError('maxlength')" style="color: #fb6100;">
+        Review must contain maximum 500 characters
+    </div>
+
+    <div class="form-group">
+        <div>
+            <label>Date</label>
+        </div>
+        <div>
+            <input type="date" class="form-control date" formControlName="date">
+        </div>
+    </div>
+
+
+    <div class="btnContainer">
+        <button class="addBtn" type="submit">Add</button>
+    </div>
+</form>
+
+<p class="reviewsTitle">REVIEWS</p>
+<hr>
+
+<div *ngFor="let review of this.dish.reviews let i = index">
+    <div>
+        <span class="addedReview">{{review}}</span>
+    </div>
+    <span *ngIf="i % 4 == 3">
+        <hr>
+    </span>
+</div>

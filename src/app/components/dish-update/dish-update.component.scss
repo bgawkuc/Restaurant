@@ -1,0 +1,117 @@
+.container {
+    margin-top: 30px;
+    flex: 1;
+    max-width: 100vw;
+}
+
+.dishName {
+    margin-top: 30px;
+    font-size: 35px;
+    color: #fb6100;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.formTitle {
+    text-align: center;
+    color: #fb6100;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input, select {
+    width: 180px;
+    height: 32px;
+    margin-top: -10px;
+    font-size: 15px;
+
+}
+
+label {
+    color:#bbbaba;
+    text-align: center;
+}
+
+.form-group {
+    display: flex;    
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+button {
+    width: 180px;
+    background-color: #fb6100;
+    color: white;
+    border: none;
+    font-weight: 600;
+    height: 30px;
+}
+
+.btnContainer{
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.warning {
+    text-align: center;
+}
+
+
+@media (min-width:1200px) {
+    .formTitle {
+        font-size: 25px;
+    }
+
+    button {
+        width: 250px;
+        height: 30px;
+        font-size: 20px;
+    }
+
+    select, input {
+        width: 250px;
+        height: 30px;
+    }
+
+    select {
+        font-size: 12px;
+    }
+
+    label {
+        font-size: 18px;
+    }
+}
+
+@media (max-width:700px) {
+    .formTitle {
+        font-size: 18px;
+    }
+
+    button {
+        width: 180px;
+        height: 23px;
+        font-size: 15px;
+        margin-top: 10px;
+    }
+
+    select, input {
+        width: 150px;
+        margin-top: -10px;
+    }
+
+    .btnContainer {
+        margin-top: -5px;
+    }
+
+    .form-group {
+        margin-bottom: 10px;
+    }
+}

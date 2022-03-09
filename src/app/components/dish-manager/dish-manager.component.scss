@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 96vw;
+    flex: 1;
+}
+
+.title {
+    margin-top: 30px;
+    font-size: 35px;
+    color: #fb6100;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.dish {
+    width: 96vw;
+    display: flex;
+    margin-bottom: 30px;
+    margin-left: 4vw;
+    border: 1.5px #dddddd solid;
+}
+
+.dishImg {
+    width: 30vw;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+img {
+    width: 30vw;
+    height: 19vw;
+}
+
+.dishDescription {
+    margin: 10px 10px 10px 20px;
+    width: 68vw;
+}
+
+.name {
+    display: flex;
+    justify-content: center;
+    color: #fb6100;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.categories {
+    display: flex;
+    justify-content:space-between;
+    align-items: baseline;
+    margin-top: 10px;
+}
+
+.categoriesTypes {
+    display: flex;
+}
+
+.price {
+    font-size: 17px;
+}
+
+.remove, .update {
+    display: flex;
+    justify-content: center;
+    margin: 5px 0 5px 0;
+   display: flex;
+   justify-content: right;
+}
+
+.removeBtn, .updateBtn {
+    width: 150px;
+    height: 25px;
+    background-color: #fb6100;
+    color: white;
+    border: none;
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+@media (min-width: 1200px)  {
+
+    .dish {
+        margin-left: 2vw;
+    }
+
+    img {
+        width: 22vw;
+        height: 14vw;
+    }
+    .name {
+        font-size: 23px;
+    }
+
+    .categories {
+        font-size: 18px;
+    }
+
+    .removeBtn, .updateBtn {
+        width: 200px;
+        height: 30px;
+    }
+
+    .price, .btnChange {
+        font-size: 20px;
+    }
+
+ }
+
+
+
+@media (min-width: 1800px) {
+    img {
+        width: 15vw;
+        height: 10vw;
+    }
+}
+
+
+ @media (max-width: 700px) {
+
+    .dish {
+        width: 94vw;
+        
+    }
+    img {
+        width: 25vw;
+        height: 17vw;
+    }
+
+    .name {
+        font-size: 17px;
+    }
+
+    .categories {
+        font-size: 13px;
+    }
+
+    .removeBtn, .updateBtn {
+        width: 100px;
+        height: 20px;
+    }
+
+    .price, .btnChange {
+       font-size: 15px;
+    }
+}

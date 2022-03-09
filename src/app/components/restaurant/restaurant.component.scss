@@ -1,0 +1,78 @@
+.currency, a {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+
+.currencyBtn,a {
+    background-color: #fb6100;
+    border: none;
+    width: 200px;
+    height: 40px;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+}
+
+.itemsNumber {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin-top: -80px;
+    margin-bottom: -30px;
+}
+
+.itemsNumber a {
+    text-align: center;
+    justify-content: center;
+    align-items: center;    
+    color: white;
+}
+
+.buttons {
+    margin-top: 5px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.buttons button {
+    width: 50px;
+    height: 25px;
+    background-color: #fb6100;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+
+}
+
+.container {
+    max-width: 100vw;
+    flex: 1;
+}
+
+@media (min-width:1200px) {
+    .currencyBtn, a {
+        width: 250px;
+        height: 40px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width:650px) {
+    .currencyBtn, a {
+        width: 160px;
+        height: 25px;
+        font-size: 16px;
+    }
+
+    form {
+        margin-top: 20px;
+    }
+}

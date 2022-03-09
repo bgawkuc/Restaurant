@@ -1,0 +1,50 @@
+<div class="container" *ngIf="isDefined()">
+    <button class="backBtn" (click)="router.navigate(['menu'])">
+        Back
+    </button>
+
+    <div class="name">{{dish.name | uppercase}}</div>
+    <div>
+        <button class="sliderBtn" (click)="changeSlide(-1)">&#10094;</button>
+        <img src="{{getImage()}}">
+        <button class="sliderBtn" (click)="changeSlide(1)">&#10095;</button>
+    </div>
+
+    <div class="details">{{dish.cuisine | uppercase}} / {{dish.type}} / {{dish.category | lowercase}}</div>
+
+    <div class="ingredientsTitle">INGREDIENTS</div>
+    <div class="ingredients">{{dish.ingredients}}</div>
+    <div class="descriptionTitle">DESCRPTION</div>
+    <div class="description">{{dish.description}}</div>
+
+    <div class="rating">
+        <div class="yourRate">
+            <app-dish-rating [dish]="dish" [isInTrolley]="isInTrolley()"></app-dish-rating>
+        </div>
+    </div>
+
+    <div class="orderDishes">
+        <div class="price" *ngIf="currencyService.currency == 'USD'"> {{dish.priceUSD | currency: 'USD'}}
+        </div>
+        <div class="price" *ngIf="currencyService.currency == 'EUR'"> {{dish.priceEUR | currency: 'EUR'}}
+        </div>
+
+        <div class="isAvailable">
+            <div *ngIf="this.trolleyService.numberReserved == dish.maxNumber; then soldOut, else available">
+            </div>
+            <ng-template #soldOut>SOLD OUT</ng-template>
+            <ng-template #available>AVAILABLE</ng-template>
+        </div>
+
+        <div class="availableDishes">
+            <button class="btnChange" (click)="minusDish(dish)"
+                [ngStyle]="{'visibility': (this.trolleyService.numberReserved == 0) ? 'hidden' : 'visible'}">-</button>
+            <div class="selectedNumber"> {{this.trolleyService.numberReserved}}</div>
+            <button class="btnChange" (click)="plusDish(dish)"
+                [ngStyle]="{'visibility': (this.trolleyService.numberReserved == dish.maxNumber) ? 'hidden' : 'visible'}"
+                [ngStyle]="{'backgroundColor': (dish.maxNumber - this.trolleyService.numberReserved <= 3) ? '#fb6100' : '#dddddd'}">+</button>
+        </div>
+    </div>
+    <app-dish-reviews [dish]="dish" [isInTrolley]="isInTrolley()"></app-dish-reviews>
+
+</div>

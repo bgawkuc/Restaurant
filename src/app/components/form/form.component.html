@@ -1,0 +1,90 @@
+<div class="container">
+    <p class="formTitle">Add new dish</p>
+    <div class="formContainer">
+        <form [formGroup]="dishForm" (ngSubmit)="onSubmit()">
+
+            <div class="form-group">
+                <div>
+                    <label>Name</label>
+                </div>
+                <div>
+                    <input type="text" class="form-control" formControlName="name">
+                </div>
+
+            </div>
+            <div class="warning" *ngIf="dishForm.controls['name'].hasError('pattern')" style="color: #fb6100;">
+                Name can't contains numbers or special characters
+            </div>
+
+            <div class="form-group">
+                <label>Cuisine</label>
+                <select class="form-control" formControlName="cuisine" required>
+                    <option *ngFor="let cuisine of cuisines" [value]="cuisine">
+                        {{cuisine}}
+                    </option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Type</label>
+                <select class="form-control" formControlName="type">
+                    <option *ngFor="let type of types" [value]="type">
+                        {{type}}
+                    </option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Category</label>
+                <select class="form-control" formControlName="category">
+                    <option *ngFor="let category of categories" [value]="category">
+                        {{category}}
+                    </option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Ingredients</label>
+                <input type="text" class="form-control" formControlName="ingredients">
+            </div>
+
+            <div class="form-group">
+                <label>Max number</label>
+                <input types="number" class="form-control" formControlName="maxNumber">
+            </div>
+            <div class="warning" *ngIf="dishForm.controls['maxNumber'].hasError('min')" style="color: #fb6100;">
+                Max number must be greater than or equal to 1
+            </div>
+            <div class="warning" *ngIf="dishForm.controls['maxNumber'].hasError('pattern')" style="color: #fb6100;">
+                Max number must be a number
+            </div>
+
+            <div class="form-group">
+                <label>Price in USD</label>
+                <input types="number" class="form-control" formControlName="price">
+            </div>
+            <div class="warning" *ngIf="dishForm.controls['price'].hasError('min')" style="color: #fb6100;">
+                Price must be greater than or equal to 1
+            </div>
+            <div class="warning" *ngIf="dishForm.controls['price'].hasError('pattern')" style="color: #fb6100;">
+                Price must be a number
+            </div>
+
+
+            <div class="form-group">
+                <label>Description</label>
+                <input type="text" class="form-control" formControlName="description">
+            </div>
+
+            <div class="form-group">
+                <label>Image link</label>
+                <input type="text" class="form-control" formControlName="img">
+            </div>
+
+            <div class="btnContainer">
+                <button type="submit">Add</button>
+            </div>
+        </form>
+    </div>
+
+</div>

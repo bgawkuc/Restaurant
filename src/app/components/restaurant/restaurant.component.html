@@ -1,0 +1,30 @@
+<div class="container">
+    <app-dish-filters (filteredDishesEmit)="updatefilteredDishes($event)"></app-dish-filters>
+
+    <div class="currency">
+        <button class="currencyBtn" (click)="changeCurrency(currencyService.currency)">Change currency</button>
+    </div>
+
+    <div class="itemsNumber">
+        <a>Change items number</a>
+    </div>
+
+    <form [formGroup]="paginationForm">
+        <select class="form-control" formControlName="item" (change)="itemChoice()">
+            <option *ngFor="let item of items" [value]="item">{{item}}</option>
+        </select>
+    </form>
+
+    <div class="buttons">
+        <button (click)=" prevPage()" [ngStyle]="{'visibility': (currentPage == 0) ? 'hidden' : 'visible'}">
+            < </button>
+                <button (click)="nextPage()"
+                    [ngStyle]="{'visibility': ( pageNumber() <= currentPage) ? 'hidden' : 'visible'}">></button>
+
+    </div>
+
+    <app-dishes *ngFor="let dish of getDishes(), let i = index" [attr.data-index]="i" [dish]="dish" [i]="i"
+        [highestPriceDish]="highestPriceDish" [lowestPriceDish]="lowestPriceDish" [currentPage]="currentPage"
+        [item]="item">
+    </app-dishes>
+</div>
