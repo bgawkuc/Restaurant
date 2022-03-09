@@ -35,6 +35,8 @@ export class DishManagerComponent implements OnInit {
   }
 
   removeDish(dish: Dish) {
+    alert("You are not allowed to delete any dish")
+    return
     this.dishService.deleteDish(dish.name).catch(error => console.log(error))
     this.trolleyService.updateTrolley(0, dish);
   }

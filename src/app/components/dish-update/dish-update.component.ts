@@ -83,6 +83,8 @@ export class DishUpdateComponent implements OnInit {
   })
 
   updateCategory() {
+    alert("You are not allowed to update any dish")
+    return
     this.dish.category = this.categoryForm.value.category;
     this.dishService.updateDish(this.dish.name, this.dish);
     this.categoryForm.reset();
@@ -95,6 +97,8 @@ export class DishUpdateComponent implements OnInit {
   })
 
   updateCuisine() {
+    alert("You are not allowed to update any dish")
+    return
     this.dish.cuisine = this.cuisineForm.value.cuisine;
     this.dishService.updateDish(this.dish.name, this.dish);
     this.cuisineForm.reset();
@@ -108,6 +112,8 @@ export class DishUpdateComponent implements OnInit {
   })
 
   updateType() {
+    alert("You are not allowed to update any dish")
+    return
     this.dish.type = this.typeForm.value.type;
     this.dishService.updateDish(this.dish.name, this.dish);
     this.typeForm.reset();
@@ -121,6 +127,8 @@ export class DishUpdateComponent implements OnInit {
   })
 
   updateIngredients() {
+    alert("You are not allowed to update any dish")
+    return
     if (this.ingredientsForm.valid) {
       this.dish.ingredients = this.ingredientsForm.value.ingredients;
       this.dishService.updateDish(this.dish.name, this.dish);
@@ -135,6 +143,8 @@ export class DishUpdateComponent implements OnInit {
   })
 
   updateDescription() {
+    alert("You are not allowed to update any dish")
+    return
     if (this.descriptionForm.valid) {
       this.dish.description = this.descriptionForm.value.description;
       this.dishService.updateDish(this.dish.name, this.dish);
@@ -149,6 +159,8 @@ export class DishUpdateComponent implements OnInit {
   })
 
   updateImg() {
+    alert("You are not allowed to update any dish")
+    return
     if (this.imgForm.valid) {
       this.dish.img = this.imgForm.value.img.split(",");
       this.dishService.updateDish(this.dish.name, this.dish);
@@ -163,6 +175,8 @@ export class DishUpdateComponent implements OnInit {
   })
 
   updateMax() {
+    alert("You are not allowed to update any dish")
+    return
     if (this.maxForm.valid) {
       this.dish.maxNumber = this.maxForm.value.max;
       this.dishService.updateDish(this.dish.name, this.dish);
@@ -177,6 +191,8 @@ export class DishUpdateComponent implements OnInit {
   })
 
   updatePrice() {
+    alert("You are not allowed to update any dish")
+    return
     if (this.priceForm.valid) {
       this.dish.price = this.priceForm.value.price;
       this.dish.priceUSD = this.priceForm.value.price;
@@ -193,6 +209,8 @@ export class DishUpdateComponent implements OnInit {
   })
 
   updateRate() {
+    alert("You are not allowed to update any dish")
+    return
     if (this.rateForm.valid) {
       this.dish.rate = this.rateForm.value.rate;
       this.dishService.updateDish(this.dish.name, this.dish);
